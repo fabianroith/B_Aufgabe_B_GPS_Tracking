@@ -12,7 +12,7 @@ import java.util.Locale;
  */
 
 public class MyDate {
-    private final static DateFormat dateFormat = new SimpleDateFormat("dd.mm.yyyy");
+    private final static DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.GERMAN);
     private final static DateFormat timeFormat = new SimpleDateFormat("hh:mm");
     private String formatted_date;
     private String formatted_time;

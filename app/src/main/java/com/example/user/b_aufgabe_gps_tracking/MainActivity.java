@@ -70,5 +70,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     private void saveLocation(Location loc) {
         MyLocation myLoc = new MyLocation(loc.getLongitude(), loc.getLatitude(), loc.getTime());
+        String s = ""+myLoc.getLatitude() + " " + myLoc.getLongitude() + " "+myLoc.getDate().getFormatted_date() + " "+ myLoc.getDate().getFormatted_time();
     }
 }
