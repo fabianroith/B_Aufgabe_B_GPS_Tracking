@@ -26,15 +26,18 @@ public class Activity2 extends AppCompatActivity {
 
     public void setList(ArrayList<String> data)
     {
-        ListView lv = findViewById(R.id.listView_entries);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
-        lv.setAdapter(adapter);
+        if (data.size() > 0) {
+            ListView lv = findViewById(R.id.listView_entries);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
+            lv.setAdapter(adapter);
+        }
     }
 
     public ArrayList<String> getData()
     {
         ArrayList<String> data = new ArrayList<>();
-        return data;
+        Database db = new Database(this);
+        return  db.getAllEntries();
     }
 
     public void setMenu()
