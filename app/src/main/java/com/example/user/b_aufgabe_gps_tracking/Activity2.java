@@ -26,7 +26,7 @@ public class Activity2 extends AppCompatActivity {
 
     public void setList(ArrayList<String> data)
     {
-        if (data.size() > 0) {
+        if (data.size() > 0){
             ListView lv = findViewById(R.id.listView_entries);
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
             lv.setAdapter(adapter);
