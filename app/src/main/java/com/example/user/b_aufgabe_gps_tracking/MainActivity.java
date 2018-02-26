@@ -1,6 +1,7 @@
 package com.example.user.b_aufgabe_gps_tracking;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -8,15 +9,18 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
     LocationManager locMan;
+    Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         locMan = (LocationManager) getSystemService(LOCATION_SERVICE);
+        db = new Database(this);
     }
 
     @Override
@@ -70,7 +74,20 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     private void saveLocation(Location loc) {
         MyLocation myLoc = new MyLocation(loc.getLongitude(), loc.getLatitude(), loc.getTime());
+        TextView tv1 = findViewById(R.id.textView1);
+        TextView tv2 = findViewById(R.id.textView2);
+        TextView tv3 = findViewById(R.id.textView3);
+        TextView tv4 = findViewById(R.id.textView4);
+        tv1.setText(""+myLoc.getLongitude());
+        tv2.setText(""+myLoc.getLatitude());
+        tv3.setText(""+myLoc.getDate().getFormatted_date());
+        tv4.setText(""+myLoc.getDate().getFormatted_time());
         String s = ""+ myLoc.toString();
-        String agag = s +"aöldkjgöag";
+        db.addEntry(s);
+    }
+
+    public void buttonClicked(){
+        Intent intent = new Intent(this, Activity2.class);
+        startActivity(intent);
     }
 }
