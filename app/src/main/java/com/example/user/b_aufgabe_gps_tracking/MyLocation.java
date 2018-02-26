@@ -42,4 +42,11 @@ public class MyLocation {
     public void setDate(MyDate date) {
         this.date = date;
     }
+
+    @Override
+    public String toString() {
+        return "longitude=" + longitude +
+                "; latitude=" + latitude +
+                "; "+date.toString();
+    }
 }
