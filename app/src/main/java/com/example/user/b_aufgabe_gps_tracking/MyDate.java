@@ -38,4 +38,9 @@ public class MyDate {
     public void setFormatted_time(String formatted_time) {
         this.formatted_time = formatted_time;
     }
+
+    @Override
+    public String toString() {
+        return "date=" + formatted_date + "; time="+formatted_time;
+    }
 }
